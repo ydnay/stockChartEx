@@ -2,9 +2,9 @@ const stockInfo  = axios.create({
   baseURL: 'https://api.iextrading.com/1.0/stock/',
 });
 
-const stockTicket = "amzn";
-
-stockInfo.get(`${stockTicket}/chart`)
+document.getElementById("btn").onclick = function() {
+  let stockTicket = document.getElementById("stock-name").value;
+  stockInfo.get(`${stockTicket}/chart`)
   .then(function (response) {
     console.log(response);
   })
@@ -37,3 +37,4 @@ const printTheChart = ((stockData) => {
     }
   });
 });
+}
